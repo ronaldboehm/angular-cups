@@ -17,6 +17,7 @@
     $urlRouterProvider
       .when('/welcome-a-new-cupper', '/welcome')
       .when('/', '/dashboard')
-      .otherwise('/dashboard');
+      // otherwise nur verwenden, wenn auf eine 404-Seite umleiten möchte
+      .when('', '/dashboard');
   }
 }());
