@@ -24,14 +24,19 @@
       }
 
       function getAll() {
-        return $http.get(getUrl)
-          .then(function(response){
-            return response.data;
-          })
-          .catch(function(error){
-            snackbar({content: error.data});
-          });
+
+        return $http
+          .get(getUrl)
+          .then(succeeded)
+          .catch(failed);
+        function succeeded(response){
+          return response.data;
+        }
+        function failed(error){
+          snackbar({ 'content' : error.data });
+        }
       }
+
 
     }
 
