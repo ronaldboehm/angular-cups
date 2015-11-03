@@ -16,58 +16,48 @@
 
       function create(cupper) {
         $http.post('/api/cupper/', cupper)
-             .then(function(response){
-               snackbar({content: response.data});
-             })
-             .catch(function(error){
-               snackbar({content: error.data});
-             });
+             .then(showResponse)
+             .catch(showError);
       }
 
       function getAll() {
         return $http
           .get('/api/cuppers/')
-          .then(function (response){
-            return response.data;
-          })
-          .catch(function (error){
-            snackbar({ 'content' : error.data });
-          });
+          .then(returnResponse)
+          .catch(showError);
       }
 
 
     function getBy(matriculationNumber){
       return $http
         .get('/api/cupper/' + matriculationNumber)
-        .then(function (response){
-          return response.data;
-        })
-        .catch(function (error){
-          snackbar({ 'content' : error.data });
-        });
+        .then(returnResponse)
+        .catch(showError);
     }
 
     function drinksACup(cupper) {
       return $http
         .put('/api/cupper/drinksACup', cupper)
-        .then(function (response) {
-          return response.data;
-        })
-        .catch(function (error) {
-          snackbar({ 'content' : error.data });
-        });
+        .then(returnResponse)
+        .catch(showError);
     }
 
     function getsAFreeCup(cupper) {
 
       return $http
         .put('/api/cupper/getsAFreeCup', cupper)
-        .then(function (response) {
-          return response.data;
-        })
-        .catch(function (error) {
-          snackbar({ 'content' : error.data });
-        });
+        .then(returnResponse)
+        .catch(showError);
+    }
+
+    function returnResponse(response){
+      return response.data;
+    }
+    function showResponse(response){
+      snackbar({content: response.data});
+    }
+    function showError(error){
+      snackbar({ 'content' : error.data });
     }
 
   }
