@@ -13,9 +13,10 @@
       templateUrl: './cupper/welcomeCupper.html',
       controller: 'cupperController as cupper'
     });
-    
+
     $urlRouterProvider
       .when('/welcome-a-new-cupper', '/welcome')
-      .otherwise('/');
+      .when('/', '/dashboard')
+      .otherwise('/dashboard');
   }
 }());
