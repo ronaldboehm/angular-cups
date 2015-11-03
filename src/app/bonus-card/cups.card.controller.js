@@ -5,14 +5,13 @@
     .module('cups.card')
     .controller('cardController', CardController);
 
-  CardController.$inject = [// '$routeParams',
-  'cupsApi'];
+  CardController.$inject = ['$stateParams', 'cupsApi'];
 
-  function CardController(cupsApi) {
+  function CardController($stateParams, cupsApi) {
 
     var vm = this;
 
-    var matriculationNumber = 1234567; // $routeParams.matriculationNumber;
+    var matriculationNumber = 1234567; // $stateParams.matriculationNumber;
 
     vm.cupper = {};
     vm.getCupper = getCupper;
