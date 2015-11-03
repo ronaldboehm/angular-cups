@@ -11,12 +11,10 @@
     var vm = this;
 
     // API outlined:
-    vm.identity = {};
+    vm.cuppers = cuppers;
 
-    vm.create = create;
-
-    function create() {
-      cupsApi.create(vm.identity);
+    function cuppers() {
+      cupsApi.cuppers();
     }
 
   }
