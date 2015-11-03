@@ -11,7 +11,7 @@
 
     var vm = this;
 
-    var matriculationNumber = 1234567; // $stateParams.matriculationNumber;
+    var matriculationNumber = $stateParams.matriculationNumber;
 
     vm.cupper = {};
     vm.getCupper = getCupper;
