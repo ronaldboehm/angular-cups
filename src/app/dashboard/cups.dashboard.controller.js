@@ -7,16 +7,19 @@
 
 
   DashboardController.$inject = ['cupsApi'];
-  function DashboardController(cupsApi) {
-    var vm = this;
+  function DashboardController(cupsApi){
+    var dashboard = this;
 
-    // API outlined:
-    vm.cuppers = cuppers;
+    dashboard.cuppers = [];
+    dashboard.getAll = getAll;
 
-    function cuppers() {
-      cupsApi.cuppers();
+    getAll();
+
+    function getAll(){
+      return cupsApi.getAll().then(function(cuppers){
+        dashboard.cuppers = cuppers;
+        return dashboard.cuppers;
+      });
     }
-
   }
-
 }());

@@ -11,7 +11,7 @@
       var getUrl = '/api/cuppers/';
 
       this.create = create;
-      this.cuppers = cuppers;
+      this.getAll = getAll;
 
       function create(cupper) {
         $http.post(postUrl, cupper)
@@ -23,8 +23,8 @@
              });
       }
 
-      function cuppers() {
-        $http.get(getUrl)
+      function getAll() {
+        return $http.get(getUrl)
           .then(function(response){
             return response.data;
           })
