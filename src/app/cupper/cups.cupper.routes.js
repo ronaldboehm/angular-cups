@@ -10,7 +10,8 @@
     $stateProvider
     .state('welcome', {
       url: '/welcome',
-      templateUrl: './cupper/welcomeCupper.html'
+      templateUrl: './cupper/welcomeCupper.html',
+      controller: 'cupperController as cupper'
     });
   }
 }());
