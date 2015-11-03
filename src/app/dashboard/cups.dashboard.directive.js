@@ -8,10 +8,8 @@
 
     function cupsCupper(){
       return {
-        restrict    : 'E',
         templateUrl : './dashboard/cups.dashboard.directive.tpl.html',
         scope       : {
-
           cupper : '=identity'
         }
       };
