@@ -7,14 +7,15 @@
 
     CupsApi.$inject = ['$http', 'snackbar'];
     function CupsApi($http, snackbar) {
-      var postUrl = '/api/cupper/';
-      var getUrl = '/api/cuppers/';
 
-      this.create = create;
-      this.getAll = getAll;
+      this.create       = create;
+      this.getAll       = getAll;
+      this.getBy        = getBy;
+      this.drinksACup   = drinksACup;
+      this.getsAFreeCup = getsAFreeCup;
 
       function create(cupper) {
-        $http.post(postUrl, cupper)
+        $http.post('/api/cupper/', cupper)
              .then(function(response){
                snackbar({content: response.data});
              })
@@ -24,20 +25,50 @@
       }
 
       function getAll() {
-
         return $http
-          .get(getUrl)
-          .then(succeeded)
-          .catch(failed);
-        function succeeded(response){
-          return response.data;
-        }
-        function failed(error){
-          snackbar({ 'content' : error.data });
-        }
+          .get('/api/cuppers/')
+          .then(function (response){
+            return response.data;
+          })
+          .catch(function (error){
+            snackbar({ 'content' : error.data });
+          });
       }
 
 
+    function getBy(matriculationNumber){
+      return $http
+        .get('/api/cupper/' + matriculationNumber)
+        .then(function (response){
+          return response.data;
+        })
+        .catch(function (error){
+          snackbar({ 'content' : error.data });
+        });
     }
 
+    function drinksACup(cupper) {
+      return $http
+        .put('/api/cupper/drinksACup', cupper)
+        .then(function (response) {
+          return response.data;
+        })
+        .catch(function (error) {
+          snackbar({ 'content' : error.data });
+        });
+    }
+
+    function getsAFreeCup(cupper) {
+
+      return $http
+        .put('/api/cupper/getsAFreeCup', cupper)
+        .then(function (response) {
+          return response.data;
+        })
+        .catch(function (error) {
+          snackbar({ 'content' : error.data });
+        });
+    }
+
+  }
 }());
