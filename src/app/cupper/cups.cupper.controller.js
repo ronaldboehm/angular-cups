@@ -6,8 +6,8 @@
     .controller('cupperController', CupperController);
 
 
-  CupperController.$inject = ['$http'];
-  function CupperController($http) {
+  CupperController.$inject = ['cupsApi'];
+  function CupperController(cupsApi) {
     var vm = this;
 
     // API outlined:
@@ -16,13 +16,7 @@
     vm.create = create;
 
     function create() {
-      $http.post('/api/cupper', vm.identity)
-           .then(function(response){
-            console.info(response);
-           })
-           .catch(function(error){
-             console.error(error);
-           });
+      cupsApi.create(vm.identity);
     }
 
   }
