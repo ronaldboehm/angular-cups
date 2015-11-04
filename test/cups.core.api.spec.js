@@ -16,7 +16,7 @@ describe('Using the API', function() {
       expect(cupsApi).not.toBe(null);
     });
   });
-  
+
   describe('When requesting a cupper', function() {
     it('should return a cupper instance', function() {
 
