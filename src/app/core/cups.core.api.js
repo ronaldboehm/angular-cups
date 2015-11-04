@@ -13,6 +13,7 @@
       this.getBy        = getBy;
       this.drinksACup   = drinksACup;
       this.getsAFreeCup = getsAFreeCup;
+      this.remove       = remove;
 
       function create(cupper) {
         $http.post('/api/cupper/', cupper)
@@ -48,6 +49,12 @@
         .put('/api/cupper/getsAFreeCup', cupper)
         .then(returnResponse)
         .catch(showError);
+    }
+
+    function remove(matriculationNumber) {
+      return $http.delete('/api/cupper/' + matriculationNumber)
+         .then(showResponse)
+         .catch(showError);
     }
 
     function returnResponse(response){
