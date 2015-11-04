@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('cups.card')
+    .module('cups.core')
     .filter('toCollection', toCollection);
 
   function toCollection() {

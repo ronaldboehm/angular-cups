@@ -4,7 +4,7 @@ describe('When passing 10 to the filter', function() {
 
   var $filter;
 
-  beforeEach(angular.mock.module('cups.card'));
+  beforeEach(angular.mock.module('cups.core'));
   beforeEach(angular.mock.inject(function(_$filter_) {
     $filter = _$filter_;
   }));
