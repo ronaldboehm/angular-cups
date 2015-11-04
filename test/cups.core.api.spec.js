@@ -39,4 +39,26 @@ describe('Using the API', function() {
     });
   });
 
+  describe('When requesting a cupper without valid id', function() {
+    it('should return an error', function() {
+
+      var errorMessage = 'There is no cupper matching the given matriculation number.';
+      var id = 1234567;
+      var result;
+
+      $httpBackend
+        .expect('GET', '/api/cupper/' + id)
+        .respond(404, errorMessage);
+
+      cupsApi.getBy(id)
+        .then(function(cupper){
+          result = cupper;
+        });
+      $httpBackend.flush();
+
+      expect(result).not.toBe(null);
+      expect(result).toBe(errorMessage);
+      expect(result.name).toBe(undefined);
+    });
+  });
 });
