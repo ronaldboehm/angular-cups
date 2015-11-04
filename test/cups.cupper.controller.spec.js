@@ -11,7 +11,7 @@ describe('Using the cupperController', function() {
     $httpBackend = _$httpBackend_;
   }));
 
-  describe('When the cupper was created successfully', function() {
+  describe('When the controller was created successfully', function() {
     it('should exist', function() {
       expect(controller).not.toBe(null);
     });

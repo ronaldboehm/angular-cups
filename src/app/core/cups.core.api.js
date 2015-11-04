@@ -63,7 +63,7 @@
     }
     function showResponse(response){
       snackbar({content: response.data});
-      return error.data;
+      return response.data;
     }
     function showError(error){
       snackbar({ 'content' : error.data });
