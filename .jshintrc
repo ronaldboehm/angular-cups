@@ -3,6 +3,13 @@
   "validthis"     : true,
 
   "globals" : {
+    "angular"     : true,
+    "beforeEach"  : true,
+    "expect"      : true,
+    "describe"    : true,
+    "it"          : true,
+    "xdescribe"   : true,
+    "xit"         : true,
     "require"     : true,
     "module"      : true,
     "exports"     : true,
