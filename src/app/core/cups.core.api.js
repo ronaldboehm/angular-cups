@@ -16,9 +16,10 @@
       this.remove       = remove;
 
       function create(cupper) {
-        $http.post('/api/cupper/', cupper)
-             .then(showResponse)
-             .catch(showError);
+        return $http
+          .post('/api/cupper/', cupper)
+          .then(showResponse)
+          .catch(showError);
       }
 
       function getAll() {
@@ -62,9 +63,11 @@
     }
     function showResponse(response){
       snackbar({content: response.data});
+      return error.data;
     }
     function showError(error){
       snackbar({ 'content' : error.data });
+      return error.data;
     }
 
   }

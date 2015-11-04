@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Testing the toCollection', function() {
+describe('Using the toCollection', function() {
 
   var $filter;
 
