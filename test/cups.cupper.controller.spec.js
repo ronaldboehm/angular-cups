@@ -37,14 +37,14 @@ describe('Using the cupperController', function() {
     });
 
     it('should raise an event that creation was successful', function() {
+      $httpBackend.expect('POST', '/api/cupper/')
+                  .respond(201, { name: 'Gregor', matriculationNumber: 1234567 });
 
-      // $httpBackend.expect('POST', '/api/cupper/')
-      //             .respond(201, { name: 'Gregor', matriculationNumber: 1234567 });
-      //
-      // controller.create();
-      // $httpBackend.flush();
-      //
-      // expect(controller.identity.name).toBe('Gregor');
+      controller.create();
+      $httpBackend.flush();
+
+      expect(scope.$emit)
+        .toHaveBeenCalled();
     });
 
   });
